@@ -38,4 +38,9 @@ public class CartaoModel {
 		return email;
 	}
 
+	public CartaoModel toModel() {
+		return new CartaoModel(numero, email);
+	}
+	
+	
 }

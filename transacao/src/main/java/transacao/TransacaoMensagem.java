@@ -2,7 +2,10 @@ package transacao;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
+import cartao.CartaoModel;
 import cartao.CartaoResponse;
+import estabelecimento.EstabelecimentoModel;
 import estabelecimento.EstabelecimentoResponse;
 
 
@@ -11,23 +14,24 @@ public class TransacaoMensagem {
 	private String id;
 	private BigDecimal valor;
 	private LocalDateTime efetivadaEm;
-	private CartaoResponse cartao;
-	private EstabelecimentoResponse estabelecimento;
+	private CartaoModel cartao;
+	private EstabelecimentoModel estabelecimento;
+
+
 
 	public TransacaoMensagem(TransacaoModel transacao) {
-		this.id = transacao.getIdTransacao();
+	
 		this.valor = transacao.getValor();
 		this.efetivadaEm = transacao.getEfetivadaEm();
-		this.cartao = new CartaoResponse(transacao.getCartao().getNumero(), transacao.getCartao().getEmail());
-		this.estabelecimento = new EstabelecimentoResponse(transacao.getEstabelecimento().getNome(),
-														   transacao.getEstabelecimento().getCidade(),
-														   transacao.getEstabelecimento().getEndereco());
+		this.cartao = transacao.getCartao();
+		this.estabelecimento = transacao.getEstabelecimento();
 	}
 
 	@Deprecated
 	public TransacaoMensagem() {
 	}
 
+	
 	public String getId() {
 		return id;
 	}
@@ -40,15 +44,16 @@ public class TransacaoMensagem {
 		return efetivadaEm;
 	}
 
-	public CartaoResponse getCartao() {
+	public CartaoModel getCartao() {
 		return cartao;
 	}
 
-	public EstabelecimentoResponse getEstabelecimento() {
+	public EstabelecimentoModel getEstabelecimento() {
 		return estabelecimento;
 	}
 
 	public TransacaoModel toModel() {
 		return new TransacaoModel(id, valor, efetivadaEm, cartao.toModel(), estabelecimento.toModel());
+	
 	}
 }

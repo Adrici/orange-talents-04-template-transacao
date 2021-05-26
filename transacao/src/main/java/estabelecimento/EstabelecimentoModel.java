@@ -45,5 +45,7 @@ public class EstabelecimentoModel {
 		return endereco;
 	}
 
-
+	public EstabelecimentoModel toModel() {
+		return new EstabelecimentoModel(nome, cidade, endereco);
+	}
 }
