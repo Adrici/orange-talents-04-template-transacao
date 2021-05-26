@@ -45,10 +45,15 @@
 			<type>test-jar</type>
 		</dependency>
 		
-		<!-- kafka Tests -->
+		<!-- kafka -->
 		<dependency>
 			<groupId>org.springframework.kafka</groupId>
 			<artifactId>spring-kafka-test</artifactId>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.springframework.cloud</groupId>
+    		<artifactId>spring-cloud-starter-stream-kafka</artifactId>
 		</dependency>
 		
 		 <!-- dependencias mais usadas em geral -->
@@ -137,17 +142,21 @@
 		</dependency>
 		
 		
+		<!-- Feing -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		
 	</dependencies>
 	
-	
-	
-	
+
 	<dependencyManagement>
-		<dependencies>
+	<dependencies>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
+				<version>Hoxton.SR10</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
