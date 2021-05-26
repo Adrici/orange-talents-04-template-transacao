@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 public class CartaoRequest {
 
 	@NotBlank
-	private String numero;
+	private String numero; 
 	@Email
 	private String email;
 
