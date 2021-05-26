@@ -20,7 +20,7 @@ public class TransacaoModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String id;
 	@NotBlank
 	private String idTransacao;
 	@NotNull
@@ -47,7 +47,7 @@ public class TransacaoModel {
 	@Deprecated
 	public TransacaoModel() {}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
